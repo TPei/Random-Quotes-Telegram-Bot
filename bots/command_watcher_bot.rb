@@ -6,12 +6,11 @@ class CommandWatcherBot
   end
 
   def check_all
-    arg = @text.split(' ')[0]
-
-    if arg.include?('/start')
+    args = @text.split(' ')
+    if args[0].include?('/start')
       RickAndMortyQuoter.start
-    elsif arg.include?('/quote')
-      RickAndMortyQuoter.quote
+    elsif args[0].include?('/quote')
+      RickAndMortyQuoter.quote args[1]
     end
   end
 end

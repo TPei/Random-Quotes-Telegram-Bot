@@ -8,8 +8,10 @@ class RickAndMortyQuoter
     'Wubba Lubba Dub Dub'
   end
 
-  def self.quote
-    url = URI.parse(URL)
+  def self.quote(id)
+    url = URL
+    url += '/' + id unless id.nil?
+    url = URI.parse(url)
     req = Net::HTTP::Get.new(url.to_s)
 
     begin
