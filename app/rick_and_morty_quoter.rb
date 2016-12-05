@@ -11,15 +11,28 @@ class RickAndMortyQuoter
   def self.quote
     url = URI.parse(URL)
     req = Net::HTTP::Get.new(url.to_s)
-    res = Net::HTTP.start(url.host, url.port) do |http|
-      http.request(req)
-    end
 
-    quote = JSON.parse(res.body)
+    begin
+      res = Net::HTTP.start(url.host, url.port) do |http|
+        http.request(req)
+      end
+
+      quote = JSON.parse(res.body)
+    rescue Exception
+      quote = base_quote
+    end
 
     <<-QUOTE
     #{quote['what']}
       - #{quote['who']} (#{quote['when']})
     QUOTE
+  end
+
+  def self.base_quote
+    {
+      'what' => 'The service might be down! This is a fallback quote. Wubba Lubba Dub Dub, amiright?',
+      'who' => 'Rick',
+      'when' => 'Season 1, Episode 5'
+    }
   end
 end
