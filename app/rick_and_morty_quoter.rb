@@ -8,6 +8,7 @@ class RickAndMortyQuoter
     'Wubba Lubba Dub Dub'
   end
 
+
   def self.quote(id)
     url = URL
     url += '/' + id unless id.nil?
@@ -26,7 +27,7 @@ class RickAndMortyQuoter
 
     <<-QUOTE
     #{quote['what']}
-      - #{quote['who']} (#{quote['when']})
+      - #{quote['who']} (#{quote['when']}, quote: #{quote['id'] || 'fallback'})
     QUOTE
   end
 
