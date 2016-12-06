@@ -11,7 +11,7 @@ class CommandWatcherBot
       RickAndMortyQuoter.start
     elsif args[0].include?('/quote')
       RickAndMortyQuoter.quote args[1]
-    elsif args[0].include('/help')
+    elsif args[0].include?('/help')
       <<-MESSAGE
       /start     - startup message
       /quote     - a random quote
