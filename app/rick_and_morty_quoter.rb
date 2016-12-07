@@ -10,9 +10,7 @@ class RickAndMortyQuoter
 
 
   def self.quote(id)
-    url = URL
-    url += '/' + id unless id.nil?
-    url = URI.parse(url)
+    url = URI.parse("#{URL}/#{id}")
     req = Net::HTTP::Get.new(url.to_s)
 
     begin
