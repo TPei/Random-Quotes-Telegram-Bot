@@ -9,10 +9,10 @@ class CommandWatcher
       RickAndMortyQuoter.quote args[1]
     elsif args[0].include?('/help')
       <<-MESSAGE
-      /start     - startup message
-      /quote     - a random quote
-      /quote :id - the quote with the id :id
-      /help      - this list of commands
+/start     - startup message
+/quote     - a random quote
+/quote :id - the quote with the id :id
+/help      - this list of commands
       MESSAGE
     end
   end
