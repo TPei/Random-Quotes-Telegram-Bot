@@ -1,7 +1,7 @@
 require 'telegram/bot'
 require 'dotenv'
-require './bots/command_watcher_bot'
-require './message_dispatcher'
+require './lib/command_watcher'
+require './lib/message_dispatcher'
 Dotenv.load
 
 token = ENV['BOT_TOKEN']
@@ -13,7 +13,7 @@ Telegram::Bot::Client.run(token) do |bot|
       chat_id = message.chat.id
 
       if message.text.start_with? '/'
-        responses.push CommandWatcherBot.new(text: message.text).check_all
+        responses.push CommandWatcher.new(text: message.text).check_all
       end
 
       mdp = MessageDispatcher.new(bot: bot, chat_id: chat_id)

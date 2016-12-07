@@ -1,6 +1,6 @@
-require './app/rick_and_morty_quoter.rb'
+require './lib/rick_and_morty_quoter.rb'
 
-class CommandWatcherBot
+class CommandWatcher
   def initialize(text:)
     @text = text
   end
