@@ -1,12 +1,8 @@
 require './lib/rick_and_morty_quoter.rb'
 
 class CommandWatcher
-  def initialize(text:)
-    @text = text
-  end
-
-  def check_all
-    args = @text.split(' ')
+  def self.parse(text)
+    args = text.split(' ')
     if args[0].include?('/start')
       RickAndMortyQuoter.start
     elsif args[0].include?('/quote')

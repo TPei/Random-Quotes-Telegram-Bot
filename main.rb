@@ -13,7 +13,7 @@ Telegram::Bot::Client.run(token) do |bot|
       chat_id = message.chat.id
 
       if message.text.start_with? '/'
-        responses.push CommandWatcher.new(text: message.text).check_all
+        responses.push CommandWatcher.parse(message.text)
       end
 
       mdp = MessageDispatcher.new(bot: bot, chat_id: chat_id)
