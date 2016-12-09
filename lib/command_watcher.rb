@@ -13,6 +13,15 @@ class CommandWatcher
 /quote     - a random quote
 /quote :id - the quote with the id :id
 /help      - this list of commands
+/info      - Bot info
+      MESSAGE
+    elsif args[0].include?('/info')
+      <<-MESSAGE
+Made by @tpei_bots
+
+The code is open source and can be found here: https://github.com/TPei/Random-Quotes-Telegram-Bot
+
+If there are persisting problems or you'd like to request changes, do so here: https://github.com/TPei/Random-Quotes-Telegram-Bot/issues/new
       MESSAGE
     end
   end
