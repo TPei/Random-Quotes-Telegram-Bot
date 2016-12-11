@@ -16,6 +16,10 @@ Telegram::Bot::Client.run(token) do |bot|
         image_path = "./images/*"
         images = Dir[image_path]
         bot.api.send_photo(chat_id: chat_id, photo: Faraday::UploadIO.new(images.sample, 'image/jpeg'))
+      elsif message.text.start_with? '/gif'
+        image_path = "./gifs/*"
+        images = Dir[image_path]
+        bot.api.send_document(chat_id: chat_id, document: Faraday::UploadIO.new(images.sample, 'image/gif'))
       else
         if message.text.start_with? '/'
           responses.push CommandWatcher.parse(message.text)
