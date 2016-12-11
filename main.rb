@@ -12,7 +12,7 @@ Telegram::Bot::Client.run(token) do |bot|
       responses = []
       chat_id = message.chat.id
 
-      if message.text.strip == '/image'
+      if message.text.start_with? '/image'
         image_path = "./images/*"
         images = Dir[image_path]
         bot.api.send_photo(chat_id: chat_id, photo: Faraday::UploadIO.new(images.sample, 'image/jpeg'))
