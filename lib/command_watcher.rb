@@ -12,6 +12,8 @@ class CommandWatcher
 /start     - startup message
 /quote     - a random quote
 /quote :id - the quote with the id :id
+/image     - get a random image
+/gif       - get a random gif
 /help      - this list of commands
 /info      - Bot info
       MESSAGE
