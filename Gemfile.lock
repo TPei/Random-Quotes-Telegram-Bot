@@ -10,6 +10,7 @@ GEM
       descendants_tracker (~> 0.0.1)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
+    diff-lcs (1.2.5)
     dotenv (2.0.2)
     equalizer (0.0.11)
     gene_pool (1.4.1)
@@ -36,6 +37,24 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    rack (2.0.1)
+    rack-test (0.6.3)
+      rack (>= 1.0)
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
+    rspec-core (3.5.4)
+      rspec-support (~> 3.5.0)
+    rspec-expectations (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-instafail (1.0.0)
+      rspec
+    rspec-mocks (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-support (3.5.0)
     slop (3.6.0)
     telegram-bot-ruby (0.4.1)
       httmultiparty
@@ -54,6 +73,9 @@ PLATFORMS
 DEPENDENCIES
   dotenv
   pry
+  rack-test
+  rspec
+  rspec-instafail
   telegram-bot-ruby
 
 BUNDLED WITH

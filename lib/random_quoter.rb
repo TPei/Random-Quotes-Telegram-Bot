@@ -12,7 +12,7 @@ class RandomQuoter
     quote =
       if id
         matches = quotes.select { |quote| quote['id'] == id }
-        return 'Sorry, there is no qoute with that id' if matches.empty?
+        return 'Sorry, there is no quote with that id' if matches.empty?
         matches[0]
       else
         @parser.random_entry

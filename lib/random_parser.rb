@@ -12,7 +12,7 @@ class RandomParser
   end
 
   def random_entry
-    @quotes.sample
+    quotes.sample
   end
 
   def self.random_entry(file)
