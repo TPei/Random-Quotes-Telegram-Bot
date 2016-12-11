@@ -12,7 +12,7 @@ Telegram::Bot::Client.run(token) do |bot|
       dispatcher = MessageDispatcher.new(bot: bot, chat_id: message.chat.id)
 
       if message.text.start_with? '/image'
-        image_path = "./images/*"
+        image_path = "./photos/*"
         images = Dir[image_path]
         dispatcher.send(photo: images.sample)
       elsif message.text.start_with? '/gif'
