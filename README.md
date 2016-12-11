@@ -13,7 +13,7 @@ In group chats with multiple Bots it might be necessary to type
 You can easily add the Bot to your chats. Just add
 [RickAndMortyQuoterBot](https://telegram.me/RickAndMortyQuoterBot).
 
-![bot demo](https://raw.githubusercontent.com/TPei/Random-Quotes-Telegram-Bot/master/bot_demo.png)
+![bot demo](https://raw.githubusercontent.com/TPei/Random-Quotes-Telegram-Bot/master/bot_demo_3.png)
 
 
 Uses the code from [this](https://github.com/TPei/random_quotes) repo.
