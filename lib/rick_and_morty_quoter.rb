@@ -4,7 +4,7 @@ require './lib/random_parser.rb'
 
 class RickAndMortyQuoter
   def initialize
-    file = File.read('./quotes/rick_and_morty.json')
+    file = File.read('./quotes/quotes.json')
     @parser = RandomParser.new(file)
   end
 
