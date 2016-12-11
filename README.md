@@ -1,4 +1,4 @@
-# Rick and Morty Quotes Telegram Bot
+# Rick and Morty Quotes Telegram Bot [![Build Status](https://travis-ci.org/TPei/Random-Quotes-Telegram-Bot.svg?branch=master)](https://travis-ci.org/TPei/Random-Quotes-Telegram-Bot)
 ## What does it do?
 Posts random quotes / images / gifs to Telegram Chats
 
