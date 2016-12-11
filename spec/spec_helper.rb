@@ -1,19 +1,7 @@
-ENV['RACK_ENV'] = 'test'
-
-require 'rack/test'
-
 # allow RSpec doubles in all contracts
 RSpec.configure do |config|
-  config.include Rack::Test::Methods
-
   config.before(:each) do
   end
-
-  #config.around(:each, :db) do |example|
-    #Api::DB.transaction(rollback: :always, auto_savepoint: true) do
-      #example.run
-    #end
-  #end
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
