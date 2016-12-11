@@ -2,7 +2,7 @@ require 'net/http'
 require 'json'
 require './lib/random_parser.rb'
 
-class RickAndMortyQuoter
+class RandomQuoter
   def initialize
     file = File.read('./quotes/quotes.json')
     @parser = RandomParser.new(file)
@@ -20,7 +20,7 @@ class RickAndMortyQuoter
 
     <<-QUOTE
     #{quote['what']}
-      - #{quote['who']} (#{quote['when']}, quote: #{quote['id'] || 'fallback'})
+      - #{quote['who']} (#{quote['when']}, quote: #{quote['id']})
     QUOTE
   end
 

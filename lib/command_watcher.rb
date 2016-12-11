@@ -1,12 +1,12 @@
-require './lib/rick_and_morty_quoter.rb'
+require './lib/random_quoter.rb'
 
 class CommandWatcher
   def self.parse(text)
     args = text.split(' ')
     if args[0].include?('/start')
-      RickAndMortyQuoter.start
+      RandomQuoter.start
     elsif args[0].include?('/quote')
-      RickAndMortyQuoter.quote args[1]
+      RandomQuoter.quote args[1]
     elsif args[0].include?('/help')
       <<-MESSAGE
 /start     - startup message
