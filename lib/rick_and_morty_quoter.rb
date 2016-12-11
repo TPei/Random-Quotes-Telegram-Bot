@@ -1,27 +1,22 @@
 require 'net/http'
 require 'json'
-
-URL = 'http://rickandmortyquotes.eu-central-1.elasticbeanstalk.com'
+require './lib/random_parser.rb'
 
 class RickAndMortyQuoter
-  def self.start
-    'Wubba Lubba Dub Dub'
+  def initialize
+    file = File.read('./quotes/rick_and_morty.json')
+    @parser = RandomParser.new(file)
   end
 
-
-  def self.quote(id)
-    url = URI.parse("#{URL}/#{id}")
-    req = Net::HTTP::Get.new(url.to_s)
-
-    begin
-      res = Net::HTTP.start(url.host, url.port) do |http|
-        http.request(req)
+  def quote(id)
+    quote =
+      if id
+        matches = quotes.select { |quote| quote['id'] == id }
+        return 'Sorry, there is no qoute with that id' if matches.empty?
+        matches[0]
+      else
+        @parser.random_entry
       end
-
-      quote = JSON.parse(res.body)
-    rescue Exception
-      quote = base_quote
-    end
 
     <<-QUOTE
     #{quote['what']}
@@ -29,11 +24,17 @@ class RickAndMortyQuoter
     QUOTE
   end
 
-  def self.base_quote
-    {
-      'what' => 'The service might be down! This is a fallback quote. Wubba Lubba Dub Dub, amiright?',
-      'who' => 'Rick',
-      'when' => 'Season 1, Episode 5'
-    }
+  def self.quote(id)
+    new.quote(id)
   end
+
+  def self.start
+    'Wubba Lubba Dub Dub'
+  end
+
+  private
+
+    def quotes
+      @quotes ||= @parser.quotes
+    end
 end
